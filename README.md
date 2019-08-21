@@ -1,1 +1,1 @@
-# cap-cloud-foundry-azure-cities-sample
+# cap-cloud-foundry-azure-cities
