@@ -1,0 +1,105 @@
+{
+    "_version": "1.8.0",
+    "sap.app": {
+        "id": "CityExplorer",
+        "type": "application",
+        "title": "{{extension-titel}}",
+        "description": "{{extension-description}}",
+        "i18n": "i18n/i18n.properties",
+        "dataSources": {
+            "CatalogService": {
+                "uri": "/catalog/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "4.0"
+                }
+            }
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": false,
+        "resources": {
+            "js": [],
+            "css": []
+        },
+        "dependencies": {
+            "libs": {
+                "sap.fe": {}
+            }
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/i18n.properties"
+            },
+            "": {
+                "dataSource": "CatalogService",
+                "settings": {
+                    "synchronizationMode": "None",
+                    "operationMode": "Server",
+                    "autoExpandSelect": true,
+                    "earlyRequests": true,
+                    "groupProperties": {
+                        "default": {
+                            "submit": "Auto"
+                        }
+                    }
+                }
+            }
+        },
+        "routing": {
+            "routes": [{
+                    "pattern": "",
+                    "name": "Home",
+                    "target": "CitiesList"
+                },
+                {
+                    "pattern": "Cities({key})",
+                    "name": "CitiesDetails",
+                    "target": "CityDetails"
+                }
+            ],
+            "targets": {
+                "CitiesList": {
+                    "type": "Component",
+                    "id": "CitiesList",
+                    "name": "sap.fe.templates.ListReport",
+                    "options": {
+                        "settings": {
+                            "entitySet": "Cities",
+                            "navigation": {
+                                "Cities": {
+                                    "detail": {
+                                        "route": "CityDetails"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "CityDetails": {
+                    "type": "Component",
+                    "id": "CityDetails",
+                    "name": "sap.fe.templates.ObjectPage",
+                    "options": {
+                        "settings": {
+                            "entitySet": "Cities"
+                        }
+                    }
+                }
+            }
+        },
+        "sap.platform.abap": {
+            "uri": ""
+        },
+        "sap.platform.hcp": {
+            "uri": ""
+        },
+        "sap.fiori": {
+            "archeType": "transactional",
+            "registrationIds": [
+                "F3893"
+            ]
+        }
+    }
+}

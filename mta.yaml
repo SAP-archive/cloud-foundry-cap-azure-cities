@@ -1,0 +1,73 @@
+_schema-version: 2.0.0
+ID: city-explorer-demo-app
+version: 1.1.0
+modules:
+  - name: city-cap-router
+    type: approuter.nodejs
+    path: app
+    parameters:
+      disk-quota: 256M
+      memory: 256M
+    requires:
+      - name: srv_api
+        group: destinations
+        properties:
+          forwardAuthToken: true
+          strictSSL: false
+          name: srv_api
+          url: ~{url}
+      - name: uploader_api
+        group: destinations
+        properties:
+          forwardAuthToken: true
+          strictSSL: false
+          name: uploader_api
+          url: ~{url}
+  - name: city-cap-db
+    type: hdb
+    path: db
+    parameters:
+      memory: 256M
+      disk-quota: 512M
+    requires:
+      - name: city-hdi-container
+  - name: city-cap-srv
+    type: nodejs
+    path: srv
+    parameters:
+      memory: 512M
+      disk-quota: 512M
+    provides:
+      - name: srv_api
+        properties:
+          url: ${default-url}
+    requires:
+      - name: city-hdi-container
+  - name: city-image-uploader
+    type: nodejs
+    path: uploader
+    parameters:
+      memory: 512M
+      disk-quota: 512M
+    provides:
+      - name: uploader_api
+        properties:
+          url: ${default-url}
+    requires:
+      - name: azure-blob-storage
+resources:
+  - name: city-hdi-container
+    type: com.sap.xs.hdi-container
+    properties:
+      hdi-container-name: ${service-name}
+    parameters:
+      service: hanatrial
+  - name: azure-blob-storage
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: azure-storage-blob-storage-account-and-container
+      service-plan: all-in-one
+      config:
+        location: "northeurope"
+        resourceGroup: "SAPTechEd"
+        accessTier: "Cool"

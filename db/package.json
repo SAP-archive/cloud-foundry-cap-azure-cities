@@ -1,0 +1,13 @@
+{
+  "name": "city-cap-db",
+  "version": "1.0.0",
+  "dependencies": {
+    "@sap/hdi-deploy": "^3.11.0"
+  },
+  "engines": {
+    "node": "^8"
+  },
+  "scripts": {
+    "start": "node node_modules/@sap/hdi-deploy/deploy.js"
+  }
+}

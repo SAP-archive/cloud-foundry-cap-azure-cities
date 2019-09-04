@@ -1,0 +1,48 @@
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:uxap="sap.uxap"
+	xmlns:core="sap.ui.core"
+	xmlns:u="sap.ui.unified"
+	xmlns:mvc="sap.ui.core.mvc">
+	<uxap:ObjectPageSection id="mySection" title="{i18n>extension-uploader-titel}">
+		<uxap:subSections>
+			<uxap:ObjectPageSubSection  id="ImageUploader">
+				<uxap:blocks>
+					<VBox id="lay">
+						<Label id="myUploadLabel" text="{i18n>extension-uploader-label}" />
+						<u:FileUploader
+							id="myFileUploader"
+							name="uploadedFile"
+							sendXHR="true"
+							enabled="{= ${ui>/editable} === 'Editable'}"
+				      		uploadUrl="/uploader/uploadhandler"
+							uploadComplete=".extension.CityExplorer.extensions.controllerExtensions.myControllerExtension.handleUploadComplete"
+							change=".extension.CityExplorer.extensions.controllerExtensions.myControllerExtension.handleValueChange"
+				      		fileType="png,jpeg,gif,svg,jpg"
+							typeMissmatch=".extension.CityExplorer.extensions.controllerExtensions.myControllerExtension.handleTypeMissmatch"
+							style="Emphasized"
+							tooltip="{i18n>extension-uploader-placeholder}"
+							placeholder="{i18n>extension-uploader-placeholder}">
+								<u:parameters>
+									<u:FileUploaderParameter
+										id="uploadParamIdField"
+										name="itemID"
+										value="{ID}"/>
+									<u:FileUploaderParameter
+										id="uploadParamUrlField"
+										name="currentUrl"
+										value="{ImageUrl}"/>
+								</u:parameters>
+							</u:FileUploader>
+						<Button
+							id="myUploadBtn"
+							tooltip="{i18n>extension-uploader-tooltip}"
+							enabled="{= ${ui>/editable} === 'Editable'}"
+							text="{i18n>extension-uploader-button}"
+							press=".extension.CityExplorer.extensions.controllerExtensions.myControllerExtension.handleUploadPress"/>
+					</VBox>
+				</uxap:blocks>
+			</uxap:ObjectPageSubSection>
+		</uxap:subSections>
+	</uxap:ObjectPageSection>
+</core:FragmentDefinition>

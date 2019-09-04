@@ -1,0 +1,89 @@
+{
+	"changes": [
+		{
+					"fileName": "id_1555327072880_299_addXML",
+					"fileType": "change",
+					"changeType": "addXML",
+					"moduleName": "CityExplorer/extensions/fragments/mySection.fragment.xml",
+					"reference": "CityExplorer.Component",
+					"packageName": "$TMP",
+					"content": {
+						"fragmentPath": "fragments/mySection.fragment.xml",
+						"targetAggregation": "sections",
+						"index": 0
+					},
+					"selector": {
+						"id": "CityExplorer::CityDetails--fe::op",
+						"idIsLocal": false
+					},
+					"layer": "VENDOR",
+					"texts": {},
+					"namespace": "apps/CityExplorer/changes/",
+					"projectId": "CityExplorer",
+					"creation": "2019-04-15T11:17:58.729Z",
+					"originalLanguage": "EN",
+					"conditions": {},
+					"context": "",
+					"support": {
+						"generator": "Change.createInitialFileContent",
+						"service": "",
+						"user": "",
+						"sapui5Version": "1.68.0",
+						"sourceChangeFileName": "",
+						"compositeCommand": "id_1555327072880_300_composite"
+					},
+					"oDataInformation": {},
+					"dependentSelector": {},
+					"validAppVersions": {
+						"creation": "${project.version}",
+						"from": "${project.version}"
+					},
+					"jsOnly": false,
+					"variantReference": ""
+				}, {
+				    "fileName": "id_1557931043113_334_addControllerExtension",
+				    "fileType": "change",
+				    "changeType": "codeExt",
+				    "moduleName": "CityExplorer/extensions/controllerExtensions/myControllerExtension",
+				    "reference": "CityExplorer.Component",
+				    "packageName": "$TMP",
+				    "content": {
+				      "codeRef": "extensions/controllerExtensions/myControllerExtension.js"
+				    },
+				    "selector": {
+				      "controllerName": "sap.fe.templates.ObjectPage.ObjectPageController"
+				    },
+				    "layer": "VENDOR",
+				    "texts": {},
+				    "namespace": "apps/CityExplorer/changes/",
+				    "projectId": "CityExplorer",
+				    "creation": "2019-05-15T14:37:49.638Z",
+				    "originalLanguage": "EN",
+				    "conditions": {},
+				    "context": "",
+				    "support": {
+				      "generator": "Change.createInitialFileContent",
+				      "service": "",
+				      "user": "",
+				      "sapui5Version": "1.67.0-SNAPSHOT",
+				      "sourceChangeFileName": "",
+				      "compositeCommand": "id_1557931043113_334_composite"
+				    },
+				    "oDataInformation": {},
+				    "dependentSelector": {},
+				    "validAppVersions": {
+				      "creation": "${project.version}",
+				      "from": "${project.version}"
+				    },
+				    "jsOnly": false,
+				    "variantReference": ""
+				  }
+
+
+	],
+	"settings": {
+		"isKeyUser": true,
+		"isAtoAvailable": false,
+		"isProductiveSystem": false
+	}
+}

@@ -1,0 +1,36 @@
+{
+  "": {
+    "City": "City",
+    "Cities": "Cities",
+    "ID": "ID",
+    "State": "State",
+    "Region": "Region",
+    "Area": "Area (km2)",
+    "Elevation": "Elevation (m)",
+    "Postal": "Postal Codes",
+    "Dial": "Dial Codes",
+    "Population": "Population",
+    "General": "General Information",
+    "Communication": "Communication Information",
+    "Admin": "Administrative Data",
+    "Additional": "Additional Data",
+    "Geo": "Geographical Information"
+  },
+  "de": {
+    "City": "Stadt",
+    "Cities": "Städte",
+    "ID": "ID",
+    "State": "Bundesland",
+    "Region": "Region",
+    "Area": "Fläche (km2)",
+    "Elevation": "Höhe (m)",
+    "Postal": "Postleitzahlen",
+    "Dial": "Vorwahlen",
+    "Population": "Bevölkerung",
+    "General": "Allgemeine Informationen",
+    "Communication": "Kommunikation",
+    "Admin": "Administrative Informationen",
+    "Additional": "Zusätzliche Informationen",
+    "Geo": "Geographische Informationen"
+  }
+}

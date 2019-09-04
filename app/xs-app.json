@@ -1,0 +1,17 @@
+{
+    "welcomeFile": "/webapp/",
+    "authenticationMethod": "none",
+    "routes": [{
+        "source": "^/webapp/(.*)$",
+        "target": "$1",
+        "localDir": "webapp/"
+    }, {
+        "source": "^/uploader/(.*)$",
+        "target": "$1",
+        "destination": "uploader_api"
+    }, {
+        "source": "^(.*)$",
+        "target": "$1",
+        "destination": "srv_api"
+    }]
+}

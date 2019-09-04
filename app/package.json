@@ -1,0 +1,17 @@
+{
+	"name": "city-cap-router",
+	"version": "1.0.0",
+	"description": "Application router service for for the city explorer demo app",
+	"dependencies": {
+		"@sap/approuter": "^6.1.0",
+		"nodemon": "^1.19.1"
+	},
+	"scripts": {
+		"start": "node node_modules/@sap/approuter/approuter.js",
+		"dev": "node --inspect=localhost:4016 -r dotenv/config  node_modules/@sap/approuter/approuter.js",
+		"nodemon": "nodemon  -r dotenv/config --inspect node_modules/@sap/approuter/approuter.js"
+	},
+	"devDependencies": {
+		"dotenv": "^8.0.0"
+	}
+}
