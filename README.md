@@ -3,7 +3,7 @@
 
 
 ## Description
-This is a sample application that can be used as a reference for the Cloud Application Programming Model for SAP Cloud Platform. Besides [CDS](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/00823f91779d4d42aa29a498e0535cdf.html) tooling, this application contains a [Fiori Elements](https://help.sap.com/viewer/468a97775123488ab3345a0c48cadd8f/7.51.4/en-US/03265b0408e2432c9571d6b3feb6b1fd.html) user interface and an additional microservice which stores images in [Azure blob storage](https://azure.microsoft.com/en-us/services/storage/blobs/).
+This is a sample application that can be used as a reference for the SAP Cloud Application Programming Model for SAP Cloud Platform. Besides [CDS](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/00823f91779d4d42aa29a498e0535cdf.html) tooling, this application contains a [SAP Fiori Elements](https://help.sap.com/viewer/468a97775123488ab3345a0c48cadd8f/7.51.4/en-US/03265b0408e2432c9571d6b3feb6b1fd.html) user interface and an additional microservice which stores images in [Azure blob storage](https://azure.microsoft.com/en-us/services/storage/blobs/).
 
 The application exposes a list of sample entities which represent cities. Each entity contains several properties, like name, region and an image. The user can navigate to a Fiori Object Page and replace the default image with a newly uploaded file. This file will be stored in an Azure storage account and the URL that references the image will then be stored in a table on HANA.
 
