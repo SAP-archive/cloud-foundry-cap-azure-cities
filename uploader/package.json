@@ -7,10 +7,10 @@
     "nodemon": "PORT=4005 nodemon --inspect app.js"
   },
   "devDependencies": {
-    "nodemon": "^1.19.1"
+    "nodemon": "^1.19.2"
   },
   "dependencies": {
-    "@azure/storage-blob": "^10.4.0",
+    "@azure/storage-blob": "^10.4.1",
     "cfenv": "^1.2.2",
     "express": "^4.17.1",
     "express-formidable": "^1.2.0"

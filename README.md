@@ -45,8 +45,8 @@ The application exposes a list of sample entities which represent cities. Each e
 ### Cloud Deployment
 1. Clone the project.
     ```
-    git clone INSERT
-    cd INSERT
+    git clone https://github.com/SAP-samples/cloud-foundry-cap-azure-cities
+    cd cloud-foundry-cap-azure-cities
     ```
 2. Build and deploy the project to the cloud.
     ```
@@ -62,12 +62,12 @@ We recommend using VS code as the project comes with support for the VS Code deb
 
 1. Clone the project.
     ```
-    git clone INSERT
-    cd INSERT
+    git clone https://github.com/SAP-samples/cloud-foundry-cap-azure-cities
+    cd cloud-foundry-cap-azure-cities
     ```
 2. Open the project with VS Code.
     ```
-    code INSERT
+    code .
     ```
 3. Add a `db/credentials.json` file which contains the credentials for the Azure storage account you want to use. The file should contain the following information.
     ```
@@ -77,18 +77,18 @@ We recommend using VS code as the project comes with support for the VS Code deb
         "primaryBlobServiceEndPoint": "https://<ENDPOINT>.blob.core.windows.net/"
     }
     ```
-3. Initialize the SQLite database via `npm run deploy:cds`.
-4. Switch to the debugging view and start the first module in debug mode.
+4. Initialize the SQLite database via `npm run deploy:cds`.
+5. Switch to the debugging view and start the first module in debug mode.
     ![switch view](./docs/debugging-1.png)
-5. Use the spinner control to switch to see all launch options.
+6. Use the spinner control to switch to see all launch options.
     ![change launch options](./docs/debugging-2.png)
-5. Launch the following three modules and make sure they are all running.
+7. Launch the following three modules and make sure they are all running.
     -  Start CDS
     -  Start Uploader
     -  Start Approuter
     
     ![all modules running](./docs/debugging-3.png)
-4. Open <http://localhost:4006> in your browser.
+8. Open <http://localhost:4006> in your browser.
 
     ![started](./docs/fiori-started.png)
 
