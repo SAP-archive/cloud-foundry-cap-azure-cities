@@ -4,7 +4,8 @@
     "dependencies": {
         "@sap/cds": "^3.16.3",
         "express": "^4.17.1",
-        "@sap/hana-client": "^2.4.144"
+        "@sap/hana-client": "^2.4.144",
+        "hdb": "latest"
     },
     "engines": {
         "node": "^10"
