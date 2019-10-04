@@ -13,7 +13,7 @@ The application exposes a list of sample entities which represent cities. Each e
 ## Requirements
 
 - Install Node.js LTS version 10 from <https://nodejs.org/en/download/>.
-- [Create](https://developers.sap.com/tutorials/cp-cf-create-account.html) a Cloud Foundry trial account in the region of Europe (Frankfurt).
+- [Create](https://developers.sap.com/tutorials/hcp-create-trial-account.html) an SAP Cloud Platform trial account in the region Europe (Frankfurt)
 - [Install](https://developers.sap.com/tutorials/INSERT.html) the Open Service Broker for Azure in your space.
 - [Follow this tutorial](https://developers.sap.com/tutorials/cp-cf-download-cli.html) to install the Cloud Foundry command-line tool.
 - Add the Multi-Target Application Cloud Foundry [CLI Plugin](https://github.com/cloudfoundry-incubator/multiapps-cli-plugin).
