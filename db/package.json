@@ -2,7 +2,7 @@
   "name": "city-cap-db",
   "version": "1.0.0",
   "dependencies": {
-    "@sap/hdi-deploy": "^3.11.2"
+    "@sap/hdi-deploy": "^3.11.5"
   },
   "engines": {
     "node": "^8"
