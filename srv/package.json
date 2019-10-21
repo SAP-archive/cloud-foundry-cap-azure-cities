@@ -2,8 +2,8 @@
     "name": "city-cap-srv",
     "version": "1.0.0",
     "dependencies": {
-        "@sap/cds": "^3.18.0-20191002105746-SNAPSHOT",
-        "@sap/hana-client": "^2.4.155",
+        "@sap/cds": "^3.18.1",
+        "@sap/hana-client": "^2.4.162",
         "express": "^4.17.1"
     },
     "engines": {

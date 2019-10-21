@@ -6,19 +6,19 @@
         "node": "^8.9"
     },
     "dependencies": {
-        "@sap/cds": "^3.18.0-20191002105746-SNAPSHOT",
-        "@sap/hana-client": "^2.4.155",
+        "@sap/cds": "^3.18.1",
+        "@sap/cds-dk": "^1.1.1",
+        "@sap/hana-client": "^2.4.162",
         "express": "^4.17.1",
         "mbt": "^0.3.2",
         "sqlite3": "^4.1.0"
     },
     "devDependencies": {
-        "nodemon": "^1.19.3"
+        "nodemon": "^1.19.4"
     },
     "scripts": {
-        "start": "cds deploy && cds run",
-        "dev": "node --inspect=localhost:4014 node_modules/.bin/cds run",
-        "build:cds": "cds build/all --clean",
+        "start": "cds watch",
+        "dev": "node --inspect=localhost:4014 node_modules/.bin/cds run --in-memory",
         "deploy:cds": "cds deploy",
         "build:mta": "cds build/all && cds deploy && mbt build -p=cf",
         "deploy:cf": "npm run build:mta && cf deploy mta_archives/${npm_package_name}_${npm_package_version}.mtar"
