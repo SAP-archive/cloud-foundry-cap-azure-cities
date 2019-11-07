@@ -9,15 +9,18 @@
         "@sap/cds": "^3.18.3",
         "@sap/hana-client": "^2.4.167",
         "express": "^4.17.1",
-        "mbt": "^0.3.3",
+        "mbt": "^0.3.5",
         "sqlite3": "^4.1.0"
     },
     "devDependencies": {
+        "axios": "^0.19.0",
+        "mocha": "^6.2.2",
         "nodemon": "^1.19.4"
     },
     "scripts": {
         "start": "cds watch",
         "dev": "node --inspect=localhost:4014 node_modules/.bin/cds run --in-memory",
+        "test": "mocha",
         "deploy:cds": "cds deploy",
         "build:mta": "cds build/all && cds deploy && mbt build -p=cf",
         "deploy:cf": "npm run build:mta && cf deploy mta_archives/${npm_package_name}_${npm_package_version}.mtar"
