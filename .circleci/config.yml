@@ -41,11 +41,12 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/repo
+      - run: echo $(ls)
       - run:
           name: Publish Release on GitHub
           command: |
             VERSION=$(cat ~/repo/package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]' )
-            ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} ./mta_archives/city-explorer-demo-app_${VERSION}.mtar 
+            ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} mta_archives/city-explorer-demo-app_${VERSION}.mtar 
 
 workflows:
   version: 2
