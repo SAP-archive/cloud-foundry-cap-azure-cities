@@ -41,21 +41,11 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/repo
-      - run: echo ${ls}
-      - run: echo "Hello, world!" > echo-output
-      - run: |
-          if [[ `cat echo-output` == "Hello, world!" ]]; then
-            echo "It worked!";
-            echo $(ls)
-          else
-            echo "Nope!"; exit 1
-          fi
-
       - run:
           name: Publish Release on GitHub
           command: |
             VERSION=$(cat ~/repo/package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]' )
-            ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -n "Auto-publish version ${VERSION}" -c ${CIRCLE_SHA1} -delete ${VERSION} ./mta_archives/city-explorer-demo-app_${VERSION}.mtar 
+            ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} ./mta_archives/city-explorer-demo-app_${VERSION}.mtar 
 
 workflows:
   version: 2
