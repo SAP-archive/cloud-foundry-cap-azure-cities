@@ -40,8 +40,7 @@ jobs:
       - run:
           name: Publish Release on GitHub
           command: |
-            go get github.com/tcnksm/ghr
-            VERSION=$(my-binary --version)
+            VERSION=$(cat package.json   | grep version   | head -1   | awk -F: '{ print $2 }'  | sed 's/[",]//g' | tr -d '[[:space:]]' )
             ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -n "Auto-publish version ${VERSION}" -c ${CIRCLE_SHA1} -delete ${VERSION} ./mta_archives/city-explorer-demo-app_${VERSION}.mtar 
 
 workflows:
