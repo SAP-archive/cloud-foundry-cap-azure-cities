@@ -1,18 +1,19 @@
-const cds = require('@sap/cds/bin/serve')
 const assert = require('assert');
-const cluster = require('cluster');
 const axios = require('axios');
+const cds = require('@sap/cds');
+const express = require('express');
 
-var base_url = "http://localhost:4004/"
-
-// let ms = 2000;
-// Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
+const { PORT = 4004 } = process.env;
+const base_url = "http://localhost:4004/catalog"
 
 describe("Checking the server process", function () {
-  this.timeout(12000)
+  this.timeout(12000);
 
-  before(() => {
-    return cds(undefined, { 'in-memory': true }); //TODO find a way to supress output
+  before(async () => {
+    const app = express();
+    app.listen(PORT);
+    await cds.connect(!cds.db && cds.env.requires.db || false);
+    await cds.serve(undefined, { 'in-memory': true }).in(app);
   });
 
   it("returns status code 200", function () {
@@ -23,7 +24,7 @@ describe("Checking the server process", function () {
   });
 
   it("returns seven cities", function () {
-    return axios.get(`${base_url}/catalog/Cities`)
+    return axios.get(`${base_url}/Cities`)
       .then(function (response) {
         assert.equal(6, response.data.value.length);
       });
@@ -32,6 +33,5 @@ describe("Checking the server process", function () {
   after(function () {
     process.exit(); //exit manually to kill child process
   });
-
 
 });

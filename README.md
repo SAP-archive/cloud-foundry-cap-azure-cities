@@ -1,4 +1,4 @@
-# CAP Demo App
+# SAP Cloud Application Programming Model + Azure Blob Storage Sample
 [![Build Status][circleci-image]][circleci-url]
 [![Dependency Status][daviddm-image]][daviddm-url]
 
