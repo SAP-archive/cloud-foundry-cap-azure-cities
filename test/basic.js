@@ -5,9 +5,8 @@ const axios = require('axios');
 
 var base_url = "http://localhost:4004/"
 
-let ms = 2000;
-
-Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
+// let ms = 2000;
+// Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
 
 describe("Checking the server process", function () {
   this.timeout(12000)
