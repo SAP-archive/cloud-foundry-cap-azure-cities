@@ -1,5 +1,6 @@
-# CAP Demo App
-
+# SAP Cloud Application Programming Model + Azure Blob Storage Sample
+[![Build Status][circleci-image]][circleci-url]
+[![Dependency Status][daviddm-image]][daviddm-url]
 
 
 ## Description
@@ -121,3 +122,8 @@ This content is provided "as-is" with no other support.
 ## License
 Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
 This file is licensed under the SAP Sample Code License except as noted otherwise in the [LICENSE file](LICENSE).
+
+[circleci-image]: https://img.shields.io/circleci/project/github/IObert/cloud-foundry-cap-azure-cities.svg
+[circleci-url]: https://circleci.com/gh/IObert/cloud-foundry-cap-azure-cities
+[daviddm-image]: https://img.shields.io/david/IObert/cloud-foundry-cap-azure-cities.svg
+[daviddm-url]: https://david-dm.org/IObert/cloud-foundry-cap-azure-cities

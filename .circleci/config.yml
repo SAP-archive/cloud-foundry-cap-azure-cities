@@ -1,0 +1,66 @@
+version: 2
+
+jobs:
+  build:
+    working_directory: ~/repo
+    docker:
+      - image: circleci/node:10.6.0
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+          - v1-dependencies-{{ checksum "package.json" }}
+          - v1-dependencies- # fallback to using the latest cache if no exact match is found
+
+      - run: 
+          name: Install dependencies
+          command: npm install
+      - run: 
+          name: Deploy to SQLite
+          command: npx cds deploy
+      - run:
+          name: Run tests
+          command: npm test
+      - run:
+          name: Trigger build
+          command: npm run build:mta
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+       
+      - persist_to_workspace:
+          root: ~/repo
+          paths: .
+
+  github-release:
+    working_directory: ~/repo
+    docker:
+      - image: cibuilds/github:0.10
+    steps:
+      - attach_workspace:
+          at: ~/repo
+      - run: echo $(ls)
+      - run:
+          name: Publish Release on GitHub
+          command: |
+            VERSION=$(cat ~/repo/package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]' )
+            ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} mta_archives/city-explorer-demo-app_${VERSION}.mtar 
+
+workflows:
+  version: 2
+  test-deploy:
+    jobs:
+      - build:
+          filters:
+            tags:
+              only: /^.*/
+      - github-release:
+          requires:
+            - build
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              ignore: /.*/
