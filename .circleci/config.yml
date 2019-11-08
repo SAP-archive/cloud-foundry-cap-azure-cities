@@ -15,6 +15,9 @@ jobs:
       - run: 
           name: Install dependencies
           command: npm install
+      - run: 
+          name: Deploy to SQLite
+          command: npx cds deploy
       - run:
           name: Run tests
           command: npm test
@@ -32,15 +35,26 @@ jobs:
           paths: .
 
   github-release:
+    working_directory: ~/repo
     docker:
       - image: cibuilds/github:0.10
     steps:
       - attach_workspace:
           at: ~/repo
+      - run: echo ${ls}
+      - run: echo "Hello, world!" > echo-output
+      - run: |
+          if [[ `cat echo-output` == "Hello, world!" ]]; then
+            echo "It worked!";
+            echo $(ls)
+          else
+            echo "Nope!"; exit 1
+          fi
+
       - run:
           name: Publish Release on GitHub
           command: |
-            VERSION=$(cat package.json   | grep version   | head -1   | awk -F: '{ print $2 }'  | sed 's/[",]//g' | tr -d '[[:space:]]' )
+            VERSION=$(cat ~/repo/package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[",]//g' | tr -d '[[:space:]]' )
             ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -n "Auto-publish version ${VERSION}" -c ${CIRCLE_SHA1} -delete ${VERSION} ./mta_archives/city-explorer-demo-app_${VERSION}.mtar 
 
 workflows:
