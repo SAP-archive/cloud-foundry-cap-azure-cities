@@ -123,7 +123,7 @@ This content is provided "as-is" with no other support.
 Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
 This file is licensed under the SAP Sample Code License except as noted otherwise in the [LICENSE file](LICENSE).
 
-[circleci-image]: https://img.shields.io/circleci/project/github/IObert/cloud-foundry-cap-azure-cities.svg
-[circleci-url]: https://circleci.com/gh/IObert/cloud-foundry-cap-azure-cities
-[daviddm-image]: https://img.shields.io/david/IObert/cloud-foundry-cap-azure-cities.svg
-[daviddm-url]: https://david-dm.org/IObert/cloud-foundry-cap-azure-cities
+[circleci-image]: https://img.shields.io/circleci/project/github/SAP-samples/cloud-foundry-cap-azure-cities.svg
+[circleci-url]: https://circleci.com/gh/SAP-samples/cloud-foundry-cap-azure-cities
+[daviddm-image]: https://img.shields.io/david/SAP-samples/cloud-foundry-cap-azure-cities.svg
+[daviddm-url]: https://david-dm.org/SAP-samples/cloud-foundry-cap-azure-cities
