@@ -6,10 +6,10 @@
         "node": "^8.9"
     },
     "dependencies": {
-        "@sap/cds": "^3.18.3",
+        "@sap/cds": "^3.18.4",
         "@sap/hana-client": "^2.4.167",
         "express": "^4.17.1",
-        "mbt": "^0.3.5",
+        "mbt": "^1.0.0",
         "sqlite3": "^4.1.0"
     },
     "devDependencies": {
