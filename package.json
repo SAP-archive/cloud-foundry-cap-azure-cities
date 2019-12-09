@@ -1,7 +1,7 @@
 {
     "name": "city-explorer-demo-app",
     "description": "Demo application for TechEd 2019",
-    "version": "1.3.5",
+    "version": "1.3.6",
     "engines": {
         "node": "^8.9"
     },
