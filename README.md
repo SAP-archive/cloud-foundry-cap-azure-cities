@@ -56,6 +56,16 @@ The application exposes a list of sample entities which represent cities. Each e
 3. Wait until the process completed and look for the output line which references the URL of the started app router. Open the displayed URL in a browser.
     ![INSERT](./docs/deploy-success.png)
 
+Alternativly, you can also just deploy selected modules and skip services by using [partial deployments](https://blogs.sap.com/2019/12/02/cloudfoundryfun-10-partial-deployments-to-cloud-foundry):
+
+```
+cf deploy mta_archives/city-explorer-demo-app_1.3.5.mtar \
+    -m city-cap-router \
+    -m city-cap-db \
+    -m  city-cap-srv \
+    -r city-hdi-container​
+```
+
 
 ### Local Development
 This project consists of several microservices. For local development, each one can be started independently. 
