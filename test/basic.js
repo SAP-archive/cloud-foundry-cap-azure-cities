@@ -4,7 +4,7 @@ const cds = require('@sap/cds');
 const express = require('express');
 
 const { PORT = 4004 } = process.env;
-const base_url = 'http://localhost:4004/catalog';
+const baseUrl = 'http://localhost:4004/catalog';
 var server;
 
 describe('Checking the server process', function () {
@@ -18,14 +18,14 @@ describe('Checking the server process', function () {
   });
 
   it('returns status code 200', function () {
-    return axios.get(base_url)
+    return axios.get(baseUrl)
       .then(function (response) {
         assert.equal(200, response.status);
       });
   });
 
   it('returns seven cities', function () {
-    return axios.get(`${base_url}/Cities`)
+    return axios.get(`${baseUrl}/Cities`)
       .then(function (response) {
         assert.equal(6, response.data.value.length);
       });

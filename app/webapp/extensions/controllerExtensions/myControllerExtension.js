@@ -4,7 +4,6 @@ sap.ui.define([
   'sap/ui/core/mvc/ControllerExtension',
   'sap/ui/core/mvc/OverrideExecution'
 ], function (jQuery, MessageToast, ControllerExtension, OverrideExecution) {
-  'use strict';
   return ControllerExtension.extend('CityExplorer.extensions.controllerExtensions.myControllerExtension', {
 
     metadata: {

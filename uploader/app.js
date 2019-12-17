@@ -2,67 +2,56 @@ const fs = require('fs');
 const express = require('express');
 const formidableMiddleware = require('express-formidable');
 const cfenv = require('cfenv').getAppEnv();
-const {
-  Aborter,
-  BlockBlobURL,
-  ContainerURL,
-  ServiceURL,
-  StorageURL,
-  SharedKeyCredential,
-  uploadStreamToBlockBlob
-} = require("@azure/storage-blob");
+const { BlobServiceClient, StorageSharedKeyCredential } = require("@azure/storage-blob");
 
 /******************************************************
   Data access functions for storage account
 ******************************************************/
-
 const credentials = cfenv.isLocal ? require('./credentials') : cfenv.getService('azure-blob-storage').credentials;
-const sharedKeyCredential = new SharedKeyCredential(credentials.storageAccountName, credentials.accessKey);
-const pipeline = StorageURL.newPipeline(sharedKeyCredential);
-const serviceURL = new ServiceURL(`https://${credentials.storageAccountName}.blob.core.windows.net`, pipeline);
-const containerURL = ContainerURL.fromServiceURL(serviceURL, 'city-images');
+const sharedKeyCredential = new StorageSharedKeyCredential(credentials.storageAccountName, credentials.accessKey);
+const blobServiceClient = new BlobServiceClient(
+  `https://${credentials.storageAccountName}.blob.core.windows.net`,
+  sharedKeyCredential
+);
 
-async function getAllBlobs(containerURL) {
-  let blobs = [], marker = undefined;
-  do {
-    const listBlobsResponse = await containerURL.listBlobFlatSegment(
-      Aborter.none,
-      marker
-    );
+const containerName = 'city-images';
+const containerClient = blobServiceClient.getContainerClient(containerName);
 
-    marker = listBlobsResponse.nextMarker;
-    blobs = [...blobs, ...listBlobsResponse.segment.blobItems];
-  } while (marker);
+
+async function getAllBlobs() {
+  let blobs = [];
+  let iter = await containerClient.listBlobsFlat();
+  for await (const blob of iter) {
+    blobs.push(blob);
+  }
   return blobs;
 }
 
-async function storeBlob(containerURL, fields, file) {
+async function storeBlob(fields, file) {
   const FOUR_MEGABYTES = 4 * 1024 * 1024;
-  const {itemID, currentUrl} = fields;
-  const regex =new RegExp(itemID+'-(\\d*)');
-  let itemName = itemID + '-1';
-  if(regex.test(currentUrl)){
-    let count = +regex.exec(currentUrl)[1]+1;
-    itemName = `${itemID}-${count}`;
-  }
-  const blockBlobURL = BlockBlobURL.fromContainerURL(containerURL, itemName);
-
-  const stream = fs.createReadStream(file.path, {
-    highWaterMark: FOUR_MEGABYTES,
-  });
-
   const uploadOptions = {
     bufferSize: FOUR_MEGABYTES,
     maxBuffers: 5,
   };
+  const { itemID, currentUrl } = fields;
+  const regex = new RegExp(itemID + '-(\\d*)');
+  let itemName = itemID + '-1';
+  if (regex.test(currentUrl)) {
+    let count = +regex.exec(currentUrl)[1] + 1;
+    itemName = `${itemID}-${count}`;
+  }
+  const stream = fs.createReadStream(file.path, {
+    highWaterMark: FOUR_MEGABYTES,
+  });
 
-  await uploadStreamToBlockBlob(
-    Aborter.none,
+  const blockBlobClient = containerClient.getBlockBlobClient(itemName);
+  await blockBlobClient.uploadStream(
     stream,
-    blockBlobURL,
     uploadOptions.bufferSize,
-    uploadOptions.maxBuffers);
-  return blockBlobURL.url;
+    uploadOptions.maxBuffers
+  );
+
+  return blockBlobClient.url;
 }
 
 /******************************************************
@@ -73,16 +62,16 @@ async function main() {
   const app = express();
   app.use(formidableMiddleware());
 
-  await containerURL.create(Aborter.none).catch(error => {
-    if (error.body.code !== "ContainerAlreadyExists") {
+  await containerClient.create().catch(error => {
+    if (error.details.Code !== "ContainerAlreadyExists") {
       throw error;
     }
   });
 
-  await containerURL.setAccessPolicy(Aborter.none, 'blob');
+  await containerClient.setAccessPolicy('blob');
 
   app.get('/', async (req, res) => {
-    const blobs = await getAllBlobs(containerURL).catch(err => {
+    const blobs = await getAllBlobs().catch(err => {
       res.status(500).send(err.message);
     });
     res.json(blobs);
@@ -93,7 +82,7 @@ async function main() {
       res.status(500).send("Missing parameter");
       return;
     }
-    const url = await storeBlob(containerURL, req.fields, req.files.uploadedFile).catch(err => {
+    const url = await storeBlob(req.fields, req.files.uploadedFile).catch(err => {
       res.status(500).send(err.message);
     });
     res.send(url);

@@ -1,26 +1,28 @@
 {
     "name": "city-explorer-demo-app",
     "description": "Demo application for TechEd 2019",
-    "version": "1.3.5",
+    "version": "1.3.6",
     "engines": {
         "node": "^8.9"
     },
     "dependencies": {
-        "@sap/cds": "^3.18.4",
+        "@sap/cds": "^3.20.1",
         "@sap/hana-client": "^2.4.167",
         "express": "^4.17.1",
-        "mbt": "^1.0.0",
-        "sqlite3": "^4.1.0"
+        "mbt": "^1.0.4",
+        "sqlite3": "^4.1.1"
     },
     "devDependencies": {
         "axios": "^0.19.0",
+        "eslint": "^6.7.2",
         "mocha": "^6.2.2",
-        "nodemon": "^1.19.4"
+        "nodemon": "^2.0.1"
     },
     "scripts": {
         "start": "cds watch",
         "dev": "node --inspect=localhost:4014 node_modules/.bin/cds run --in-memory",
         "test": "mocha",
+        "lint": "eslint .",
         "deploy:cds": "cds deploy",
         "build:mta": "cds build/all && cds deploy && mbt build -p=cf",
         "deploy:cf": "npm run build:mta && cf deploy mta_archives/${npm_package_name}_${npm_package_version}.mtar"
