@@ -1,7 +1,7 @@
 {
     "name": "city-explorer-demo-app",
     "description": "Demo application for SAP Cloud Application Programming Model and Azure Services",
-    "version": "1.4.0",
+    "version": "1.3.6",
     "engines": {
         "node": "^8.9"
     },
