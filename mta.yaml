@@ -1,10 +1,15 @@
-_schema-version: 2.0.0
+_schema-version: 3.3.0
 ID: city-explorer-demo-app
-version: 1.3.6
+version: 1.4.0
+parameters:
+  enable-parallel-deployments: true
 modules:
   - name: city-cap-router
     type: approuter.nodejs
     path: app
+    deployed-after:
+      - city-image-uploader
+      - city-cap-srv
     parameters:
       disk-quota: 256M
       memory: 256M
@@ -62,6 +67,7 @@ resources:
       hdi-container-name: ${service-name}
     parameters:
       service: hanatrial
+      service-alternatives: ["hana"]
   - name: azure-blob-storage
     type: org.cloudfoundry.managed-service
     parameters:
@@ -69,5 +75,5 @@ resources:
       service-plan: all-in-one
       config:
         location: "northeurope"
-        resourceGroup: "SAPTechEd"
+        resourceGroup: "SAPCloudPlatform"
         accessTier: "Cool"
