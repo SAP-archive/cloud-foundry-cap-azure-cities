@@ -48,6 +48,7 @@ The application exposes a list of sample entities which represent cities. Each e
     ```
     git clone https://github.com/SAP-samples/cloud-foundry-cap-azure-cities
     cd cloud-foundry-cap-azure-cities
+    npm install
     ```
 2. Build and deploy the project to the cloud.
     ```
@@ -75,6 +76,7 @@ We recommend using VS code as the project comes with support for the VS Code deb
     ```
     git clone https://github.com/SAP-samples/cloud-foundry-cap-azure-cities
     cd cloud-foundry-cap-azure-cities
+    npm install
     ```
 2. Open the project with VS Code.
     ```
