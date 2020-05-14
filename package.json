@@ -1,7 +1,7 @@
 {
     "name": "city-explorer-demo-app",
     "description": "Demo application for SAP Cloud Application Programming Model and Azure Services",
-    "version": "1.6.1",
+    "version": "1.6.2",
     "dependencies": {
         "@sap/cds": "^3.34.1",
         "@sap/hana-client": "^2.4.196",
