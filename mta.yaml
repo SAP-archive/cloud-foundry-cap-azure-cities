@@ -1,6 +1,6 @@
 _schema-version: 3.3.0
 ID: city-explorer-demo-app
-version: 1.7.3
+version: 1.7.4
 parameters:
   enable-parallel-deployments: true
 
