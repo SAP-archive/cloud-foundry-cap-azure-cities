@@ -15,7 +15,7 @@ The application exposes a list of sample entities which represent cities. Each e
 
 - Install Node.js LTS version 10 from <https://nodejs.org/en/download/>.
 - [Create](https://developers.sap.com/tutorials/hcp-create-trial-account.html) an SAP Cloud Platform trial account in the region Europe (Frankfurt)
-- [Install](https://developers.sap.com/tutorials/INSERT.html) the Open Service Broker for Azure in your space.
+- [Install](https://developers.sap.com/mission.cp-azure-services.html) the Open Service Broker for Azure in your space.
 - [Follow this tutorial](https://developers.sap.com/tutorials/cp-cf-download-cli.html) to install the Cloud Foundry command-line tool.
 - Add the Multi-Target Application Cloud Foundry [CLI Plugin](https://github.com/cloudfoundry-incubator/multiapps-cli-plugin).
     ```
@@ -48,6 +48,7 @@ The application exposes a list of sample entities which represent cities. Each e
     ```
     git clone https://github.com/SAP-samples/cloud-foundry-cap-azure-cities
     cd cloud-foundry-cap-azure-cities
+    npm install
     ```
 2. Build and deploy the project to the cloud.
     ```
@@ -75,6 +76,7 @@ We recommend using VS code as the project comes with support for the VS Code deb
     ```
     git clone https://github.com/SAP-samples/cloud-foundry-cap-azure-cities
     cd cloud-foundry-cap-azure-cities
+    npm install
     ```
 2. Open the project with VS Code.
     ```

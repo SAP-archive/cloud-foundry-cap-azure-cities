@@ -1,24 +1,5 @@
 {
-    "requires": {
-        "db": {
-            "kind": "sqlite",
-            "model": [
-                "db",
-                "srv"
-            ],
-            "credentials": {
-                "database": "cities.db"
-            },
-            "[production]": {
-                "kind": "hana"
-            }
-        }
-    },
-    "odata": {
-        "version": "v4"
-    },
     "build": {
-        "target": ".",
         "tasks": [
             {
                 "for": "node-cf",

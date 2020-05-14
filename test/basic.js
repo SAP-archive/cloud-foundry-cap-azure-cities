@@ -24,7 +24,7 @@ describe('Checking the server process', function () {
       });
   });
 
-  it('returns seven cities', function () {
+  it('returns six cities', function () {
     return axios.get(`${baseUrl}/Cities`)
       .then(function (response) {
         assert.equal(6, response.data.value.length);
