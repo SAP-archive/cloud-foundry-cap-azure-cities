@@ -3,8 +3,8 @@
 	"version": "1.0.0",
 	"description": "Application router service for for the city explorer demo app",
 	"dependencies": {
-		"@sap/approuter": "^6.7.0",
-		"nodemon": "^2.0.1"
+		"@sap/approuter": "^7.1.2",
+		"nodemon": "^2.0.3"
 	},
 	"scripts": {
 		"start": "node node_modules/@sap/approuter/approuter.js",
