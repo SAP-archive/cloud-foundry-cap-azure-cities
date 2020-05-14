@@ -1,30 +1,30 @@
 {
     "name": "city-explorer-demo-app",
     "description": "Demo application for SAP Cloud Application Programming Model and Azure Services",
-    "version": "1.4.0",
+    "version": "1.7.0",
     "engines": {
         "node": "^8.9"
     },
     "dependencies": {
-        "@sap/cds": "^3.20.1",
-        "@sap/hana-client": "^2.4.167",
+        "@sap/cds": "^3.34.1",
+        "@sap/hana-client": "^2.4.196",
         "express": "^4.17.1",
-        "mbt": "^1.0.4",
-        "sqlite3": "^4.1.1"
+        "mbt": "^1.0.14",
+        "sqlite3": "^4.2.0"
     },
     "devDependencies": {
-        "axios": "^0.19.0",
-        "eslint": "^6.7.2",
-        "mocha": "^6.2.2",
-        "nodemon": "^2.0.1"
+        "axios": "^0.19.2",
+        "eslint": "^7.0.0",
+        "mocha": "^7.1.2",
+        "nodemon": "^2.0.4"
     },
     "scripts": {
-        "start": "cds watch",
+        "start": "npx cds run",
         "dev": "node --inspect=localhost:4014 node_modules/.bin/cds run --in-memory",
         "test": "mocha",
         "lint": "eslint .",
         "deploy:cds": "cds deploy",
         "build:mta": "cds build/all && cds deploy && mbt build -p=cf --mtar=city-explorer-demo-app.mtar",
-        "deploy:cf": "npm run build:mta && cf deploy mta_archives/${npm_package_name}_${npm_package_version}.mtar"
+        "deploy:cf": "npm run build:mta && cf deploy mta_archives/city-explorer-demo-app.mtar"
     }
 }
