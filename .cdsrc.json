@@ -18,6 +18,7 @@
         "version": "v4"
     },
     "build": {
+        "target": ".",
         "tasks": [
             {
                 "for": "node-cf",
