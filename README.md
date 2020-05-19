@@ -48,6 +48,7 @@ The application exposes a list of sample entities which represent cities. Each e
     ```
     git clone https://github.com/SAP-samples/cloud-foundry-cap-azure-cities
     cd cloud-foundry-cap-azure-cities
+    npm install
     ```
 2. Build and deploy the project to the cloud.
     ```
@@ -59,7 +60,7 @@ The application exposes a list of sample entities which represent cities. Each e
 Alternativly, you can also just deploy selected modules and skip services by using [partial deployments](https://blogs.sap.com/2019/12/02/cloudfoundryfun-10-partial-deployments-to-cloud-foundry):
 
 ```
-cf deploy mta_archives/city-explorer-demo-app_1.3.5.mtar \
+cf deploy mta_archives/city-explorer-demo-app.mtar \
     -m city-cap-router \
     -m city-cap-db \
     -m  city-cap-srv \
@@ -75,6 +76,7 @@ We recommend using VS code as the project comes with support for the VS Code deb
     ```
     git clone https://github.com/SAP-samples/cloud-foundry-cap-azure-cities
     cd cloud-foundry-cap-azure-cities
+    npm install
     ```
 2. Open the project with VS Code.
     ```
@@ -130,7 +132,7 @@ This content is provided "as-is" with no other support.
 
 
 ## License
-Copyright (c) 2019 SAP SE or an SAP affiliate company. All rights reserved.
+Copyright (c) 2020 SAP SE or an SAP affiliate company. All rights reserved.
 This file is licensed under the SAP Sample Code License except as noted otherwise in the [LICENSE file](LICENSE).
 
 [circleci-image]: https://img.shields.io/circleci/project/github/SAP-samples/cloud-foundry-cap-azure-cities.svg

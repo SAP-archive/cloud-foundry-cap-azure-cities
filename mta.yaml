@@ -1,8 +1,16 @@
 _schema-version: 3.3.0
 ID: city-explorer-demo-app
-version: 1.4.0
+version: 1.7.6
 parameters:
   enable-parallel-deployments: true
+
+build-parameters:
+  before-all:
+    - builder: custom
+      commands:
+        - npm install
+        - npx cds build
+
 modules:
   - name: city-cap-router
     type: approuter.nodejs
@@ -28,20 +36,16 @@ modules:
           strictSSL: false
           name: uploader_api
           url: ~{url}
-  - name: city-cap-db
+  - name: city-cap-db-deployer
     type: hdb
     path: db
     parameters:
-      memory: 256M
-      disk-quota: 512M
+      app-name: city-cap-db-deployer
     requires:
       - name: city-hdi-container
   - name: city-cap-srv
     type: nodejs
     path: srv
-    parameters:
-      memory: 512M
-      disk-quota: 512M
     provides:
       - name: srv_api
         properties:
