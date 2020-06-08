@@ -23,9 +23,7 @@
             "css": []
         },
         "dependencies": {
-            "libs": {
-                "sap.fe": {}
-            }
+            "libs": {}
         },
         "models": {
             "i18n": {
@@ -88,12 +86,6 @@
                     }
                 }
             }
-        },
-        "sap.platform.abap": {
-            "uri": ""
-        },
-        "sap.platform.hcp": {
-            "uri": ""
         },
         "sap.fiori": {
             "archeType": "transactional",
