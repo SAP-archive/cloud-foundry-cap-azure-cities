@@ -1,5 +1,5 @@
 sap.ui.define(
-  ['sap/fe/AppComponent'],
+  ['sap/fe/core/AppComponent'],
   ac => ac.extend('CityExplorer.Component', {
     metadata: {
       manifest: 'json'
