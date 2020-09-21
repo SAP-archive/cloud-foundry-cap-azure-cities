@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@azure/storage-blob": "^12.1.1",
-    "cfenv": "^1.2.2",
+    "cfenv": "^1.2.3",
     "express": "^4.17.1",
     "express-formidable": "^1.2.0"
   }

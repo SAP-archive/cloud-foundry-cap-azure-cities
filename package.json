@@ -6,16 +6,16 @@
         "node": "^8.9"
     },
     "dependencies": {
-        "@sap/cds": "^3.34.1",
-        "@sap/hana-client": "^2.4.196",
+        "@sap/cds": "^4.1.9",
+        "@sap/hana-client": "^2.5.109",
         "express": "^4.17.1",
-        "mbt": "^1.0.14",
-        "sqlite3": "^4.2.0"
+        "mbt": "^1.0.16",
+        "sqlite3": "^5.0.0"
     },
     "devDependencies": {
-        "axios": "^0.19.2",
-        "eslint": "^7.0.0",
-        "mocha": "^7.1.2",
+        "axios": "^0.20.0",
+        "eslint": "^7.9.0",
+        "mocha": "^8.1.3",
         "nodemon": "^2.0.4"
     },
     "scripts": {

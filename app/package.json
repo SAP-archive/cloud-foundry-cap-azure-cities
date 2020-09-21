@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"description": "Application router service for for the city explorer demo app",
 	"dependencies": {
-		"@sap/approuter": "^7.1.2",
+		"@sap/approuter": "^8.5.2",
 		"nodemon": "^2.0.4"
 	},
 	"scripts": {
