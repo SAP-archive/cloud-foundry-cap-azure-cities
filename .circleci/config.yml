@@ -17,13 +17,13 @@ jobs:
           command: npm install
       - run: 
           name: Deploy to SQLite
-          command: npx cds deploy
+          command: npx -p @sap/cds-dk cds deploy 
       - run:
           name: Run tests
           command: npm test
       - run:
           name: Trigger build
-          command: npm run build:mta
+          command: npm run build:mta 
 
       - save_cache:
           paths:
