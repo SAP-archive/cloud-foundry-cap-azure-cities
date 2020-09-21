@@ -1,6 +1,7 @@
 # SAP Cloud Application Programming Model + Azure Blob Storage Sample
 [![Build Status][circleci-image]][circleci-url]
 [![Dependency Status][daviddm-image]][daviddm-url]
+[![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/cloud-foundry-cap-azure-cities/)](https://api.reuse.software/info/github.com/SAP-samples/cloud-foundry-cap-azure-cities/)
 
 
 ## Description
@@ -129,11 +130,6 @@ None so far :)
 
 ## How to obtain support
 This content is provided "as-is" with no other support.
-
-
-## License
-Copyright (c) 2020 SAP SE or an SAP affiliate company. All rights reserved.
-This file is licensed under the SAP Sample Code License except as noted otherwise in the [LICENSE file](LICENSE).
 
 [circleci-image]: https://img.shields.io/circleci/project/github/SAP-samples/cloud-foundry-cap-azure-cities.svg
 [circleci-url]: https://circleci.com/gh/SAP-samples/cloud-foundry-cap-azure-cities
