@@ -1,7 +1,7 @@
 # SAP Cloud Application Programming Model + Azure Blob Storage Sample
 [![Build Status][circleci-image]][circleci-url]
 [![Dependency Status][daviddm-image]][daviddm-url]
-[![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/cloud-foundry-cap-azure-cities/)](https://api.reuse.software/info/github.com/SAP-samples/cloud-foundry-cap-azure-cities/)
+[![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/cloud-foundry-cap-azure-cities)](https://api.reuse.software/info/github.com/SAP-samples/cloud-foundry-cap-azure-cities)
 
 
 ## Description
