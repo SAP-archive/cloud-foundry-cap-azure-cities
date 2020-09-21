@@ -24,7 +24,7 @@
         "test": "mocha",
         "lint": "eslint .",
         "deploy:cds": "cds deploy",
-        "build:mta": "cds build/all && cds deploy && mbt build -p=cf --mtar=city-explorer-demo-app.mtar",
+        "build:mta": "mbt build --mtar=city-explorer-demo-app.mtar",
         "deploy:cf": "npm run build:mta && cf deploy mta_archives/city-explorer-demo-app.mtar"
     }
 }

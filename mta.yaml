@@ -4,12 +4,13 @@ version: 1.7.8
 parameters:
   enable-parallel-deployments: true
 
+
 build-parameters:
   before-all:
     - builder: custom
       commands:
-        - npm install
-        - npx cds build
+        - npm install --production
+        - npx -p @sap/cds-dk cds build --production
 
 modules:
   - name: city-cap-router
